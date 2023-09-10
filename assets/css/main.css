@@ -4021,6 +4021,10 @@ body.landing #main {
 	}
 }
 
+.donation-o {
+	flex: 1 33%;
+}
+
 .donation-o svg {
 	width: 60px;
 	height: auto;
