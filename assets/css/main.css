@@ -4015,6 +4015,12 @@ body.landing #main {
 	text-align: center;
 }
 
+@media (max-width: 650px) {
+	#donation-options {
+		flex-wrap: wrap;
+	}
+}
+
 .donation-o svg {
 	width: 60px;
 	height: auto;
