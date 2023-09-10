@@ -3009,7 +3009,7 @@ body.landing #page-wrapper {
 }
 
 #header {
-  background: #444;
+  background: #3f4352;
   color: #bbb;
   cursor: default;
   height: 3.25em;
@@ -3695,7 +3695,7 @@ body.landing #main {
     top: 0;
     width: 275px;
     z-index: 10002;
-    background: #2b2b2b;
+    background: #3f4352;
     color: #bbb;
   }
 
