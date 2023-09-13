@@ -21,7 +21,7 @@
 </script>
 	</head>
 	<body class="is-preload">
-		<script>window.location.href='https://i.ibb.co/K5fZvrK/idiot.png';</script>
+		<script>window.location.href='https://ibb.co/9p1X5rZ';</script>
 		<div id="page-wrapper">
 
 			<!-- Header -->
