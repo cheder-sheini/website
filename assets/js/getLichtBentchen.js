@@ -159,9 +159,9 @@ function getSunset(latitude, longitude, date = new Date()) {
 }
 
 function getNextFriday() {
-  var today = new Date();
-  var dayOfWeek = today.getDay(); // Sunday - 0, Monday - 1, ..., Saturday - 6
-  var daysUntilFriday = (5 - dayOfWeek + 7) % 7; // Calculate days until next Friday
+  const today = new Date();
+  const dayOfWeek = today.getDay();
+  const daysUntilFriday = (5 - dayOfWeek + 7) % 7;
 
   today.setDate(today.getDate() + daysUntilFriday);
   return today;
@@ -180,7 +180,7 @@ function getUpcomingKingstonLichtBentchen() {
   return new Intl.DateTimeFormat("en-US", {
     hour: "numeric",
     minute: "2-digit",
-    hour12: true, // Set to true for 12-hour format, false for 24-hour format
+    hour12: true,
   }).format(sunset);
 }
 
