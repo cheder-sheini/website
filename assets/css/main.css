@@ -4023,6 +4023,7 @@ body.landing #main {
 
 .donation-o {
 	flex: 1 33%;
+  margin-bottom: 20px;
 }
 
 .donation-o svg {
