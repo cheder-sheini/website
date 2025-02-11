@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Decimal';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(./Decimal-Light.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Decimal';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./Decimal-Medium.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Romie';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(./Romie-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Romie';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(./Romie-LightItalic.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Romie';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./Romie-MediumItalic.ttf) format('truetype');
+}
