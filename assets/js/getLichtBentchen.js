@@ -197,17 +197,24 @@ const formatTime = (date) => {
 }
 
 const candleLighting = (date) => {
-  return formatTime(date.setMinutes(date.getMinutes() - 18));
+  date.setMinutes(date.getMinutes() - 18)
+  return formatTime(roundTo5(date));
+}
+
+const roundTo5 = (date) => {
+  return date.setMinutes(Math.round(date.getMinutes() / 5) * 5);
 }
 
 const kabolasShabbos = () => {
   const date = getUpcomingSunset();
-  return formatTime(date.setMinutes(date.getMinutes() + 25));
+  date.setMinutes(date.getMinutes() + 25);
+  return formatTime(roundTo5(date));
 }
 
 const shabbosMincha = () => {
   const date = getUpcomingSunset();
-  return formatTime(date.setMinutes(date.getMinutes() - 25));
+  date.setMinutes(date.getMinutes() - 25)
+  return formatTime(roundTo5(date));
 }
 
 function setPageTimes() {
@@ -218,7 +225,7 @@ function setPageTimes() {
   document.getElementById("licht-time").innerHTML = candleLightingTime;
   document.getElementById("ks-time").innerHTML = kabolasShabbosTime;
   document.getElementById("shabbos-mincha-time").innerHTML = shabbosMinchaTime;
-  console.log(getHebInfo(getNextFriday()));
+
   document.getElementById("parsha-name").innerHTML = getHebInfo(getNextFriday()).occasion;
 }
 
