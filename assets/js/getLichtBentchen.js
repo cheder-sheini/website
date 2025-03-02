@@ -167,13 +167,16 @@ function getNextFriday() {
   return today;
 }
 
-function getUpcomingKingstonLichtBentchen() {
+const getUpcomingSunset = () => {
   const LATITUDE = 41.268871;
   const LONGITUDE = -75.890617;
 
   const friday = getNextFriday();
 
-  const sunset = getSunset(LATITUDE, LONGITUDE, friday);
+  return getSunset(LATITUDE, LONGITUDE, friday);
+};
+
+function getUpcomingKingstonLichtBentchen() {
 
   sunset.setMinutes(sunset.getMinutes() - 18);
 
@@ -184,9 +187,37 @@ function getUpcomingKingstonLichtBentchen() {
   }).format(sunset);
 }
 
+const formatTime = (date) => {
+  return new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).format(date);
+}
+
+const candleLighting = (date) => {
+  return formatTime(date.setMinutes(date.getMinutes() - 18));
+}
+
+const kabolasShabbos = () => {
+  const date = getUpcomingSunset();
+  return formatTime(date.setMinutes(date.getMinutes() + 25));
+}
+
+const shabbosMincha = () => {
+  const date = getUpcomingSunset();
+  return formatTime(date.setMinutes(date.getMinutes() - 25));
+}
+
 function setPageTimes() {
-  const time = getUpcomingKingstonLichtBentchen();
-  document.querySelectorAll('.licht-bentchen').forEach(el => el.innerText = time);
+  const sunset = getUpcomingSunset();
+
+  const candleLightingTime = candleLighting(sunset);
+  const kabolasShabbosTime = kabolasShabbos(sunset);
+  const shabbosMinchaTime = shabbosMincha(sunset);
+  document.getElementById("licht-time").innerHTML = candleLightingTime;
+  document.getElementById("ks-time").innerHTML = kabolasShabbosTime;
+  document.getElementById("shabbos-mincha-time").innerHTML = shabbosMinchaTime;
 }
 
 setPageTimes();
