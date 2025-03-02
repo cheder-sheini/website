@@ -1,3 +1,6 @@
+const LAMBDA = 'https://us-central1-torah-campaigns.cloudfunctions.net/donor-tally';
+const SHEET_ID = '1iPVpsf4qmJvukKopHezrSrfIzPSIpBlHaPWOeHhVLm4';
+
 /**
  * Sunrise/sunset script. By Matt Kane. Adopted for NPM use by Alexey Udivankin.
  *
@@ -217,6 +220,18 @@ const shabbosMincha = () => {
   return formatTime(roundTo5(date));
 }
 
+const loadDonorData = async () => {
+  const url = `${LAMBDA}?id=${SHEET_ID}`;
+let data;
+  try {
+     const res = await fetch(url);
+     data = await res.json();    
+  } catch (error) {
+    
+  }
+  document.getElementById('kiddush-sponsor').innerHTML = data.values[0][1];
+}
+
 function setPageTimes() {
   const sunset = getUpcomingSunset();
   const candleLightingTime = candleLighting(sunset);
@@ -225,7 +240,7 @@ function setPageTimes() {
   document.getElementById("licht-time").innerHTML = candleLightingTime;
   document.getElementById("ks-time").innerHTML = kabolasShabbosTime;
   document.getElementById("shabbos-mincha-time").innerHTML = shabbosMinchaTime;
-
+  loadDonorData();
   document.getElementById("parsha-name").innerHTML = getHebInfo(getNextFriday()).occasion;
 }
 
