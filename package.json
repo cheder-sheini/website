@@ -1,0 +1,17 @@
+{
+  "name": "cheder-sheini",
+  "version": "1.0.0",
+  "description": "",
+
+  "scripts": {
+    "build": "parcel build zmanim.js --dist-dir ./assets/js --no-cache"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hebcal/core": "^5.4.6"
+  },
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}

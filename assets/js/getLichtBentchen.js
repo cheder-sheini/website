@@ -18,6 +18,7 @@
  * or connect to: http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
  */
 
+
 /**
  * Default zenith
  */
@@ -211,13 +212,14 @@ const shabbosMincha = () => {
 
 function setPageTimes() {
   const sunset = getUpcomingSunset();
-
   const candleLightingTime = candleLighting(sunset);
   const kabolasShabbosTime = kabolasShabbos(sunset);
   const shabbosMinchaTime = shabbosMincha(sunset);
   document.getElementById("licht-time").innerHTML = candleLightingTime;
   document.getElementById("ks-time").innerHTML = kabolasShabbosTime;
   document.getElementById("shabbos-mincha-time").innerHTML = shabbosMinchaTime;
+  console.log(getHebInfo(getNextFriday()));
+  document.getElementById("parsha-name").innerHTML = getHebInfo(getNextFriday()).occasion;
 }
 
 setPageTimes();
